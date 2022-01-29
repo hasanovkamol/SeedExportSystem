@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeedExportSystem.Dialog;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,14 +35,12 @@ namespace SeedExportSystem
         /// Predmet soxa
         private void btn1_Click(object sender, EventArgs e)
         {
-            if (txt1.Text.Length > 0)
-                sectionList.Items.Add(txt1.Text);
+          
         }
         /// atribut 
         private void btn2_Click(object sender, EventArgs e)
         {
-            if (txt2.Text.Length > 0 )
-                keyList.Items.Add(txt2.Text);
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,6 +52,24 @@ namespace SeedExportSystem
             StartWindow start = new StartWindow();
             start.Show();
             this.Hide();
+        }
+
+        private void btn1_Click_1(object sender, EventArgs e)
+        {
+            Predmet predmet = new Predmet();
+            predmet.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Atribut atribut = new Atribut();
+            atribut.Show(); 
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Qiymat qiymat = new Qiymat();
+            qiymat.Show();
         }
     }
 }
