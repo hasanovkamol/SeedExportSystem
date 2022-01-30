@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeedExportSystem.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace SeedExportSystem
         public StartWindow()
         {
             InitializeComponent();
+            Global.dbo = new DbContextEntity();
         }
 
         private void button1_Click(object sender, EventArgs e)

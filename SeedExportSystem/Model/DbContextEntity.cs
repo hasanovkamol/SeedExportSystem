@@ -17,6 +17,8 @@ namespace SeedExportSystem.Model
         {
             base.OnModelCreating(modelBuilder);
         }
+        public DbSet<Export> Exports { get; set; }
+        public DbSet<KeyValue> KeyValues { get; set; }
         public DbSet<Predmet> Predmets { get; set; }
         public DbSet<Atribut> Atributs { get; set;}
         public DbSet<Qiymat>  Qiymats { get; set; }

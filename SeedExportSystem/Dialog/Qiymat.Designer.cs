@@ -30,8 +30,8 @@
         {
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comBox = new System.Windows.Forms.ComboBox();
+            this.tbLabel = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,20 +54,20 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Atribut";
             // 
-            // comboBox1
+            // comBox
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(60, 52);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(265, 27);
-            this.comboBox1.TabIndex = 13;
+            this.comBox.FormattingEnabled = true;
+            this.comBox.Location = new System.Drawing.Point(60, 52);
+            this.comBox.Name = "comBox";
+            this.comBox.Size = new System.Drawing.Size(265, 27);
+            this.comBox.TabIndex = 13;
             // 
-            // textBox1
+            // tbLabel
             // 
-            this.textBox1.Location = new System.Drawing.Point(60, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(265, 27);
-            this.textBox1.TabIndex = 12;
+            this.tbLabel.Location = new System.Drawing.Point(60, 114);
+            this.tbLabel.Name = "tbLabel";
+            this.tbLabel.Size = new System.Drawing.Size(265, 27);
+            this.tbLabel.TabIndex = 12;
             // 
             // button2
             // 
@@ -81,6 +81,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.button1.Location = new System.Drawing.Point(232, 162);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(93, 30);
@@ -96,12 +97,12 @@
             this.ClientSize = new System.Drawing.Size(383, 235);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.comBox);
+            this.Controls.Add(this.tbLabel);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Font = new System.Drawing.Font("Candara", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Qiymat";
             this.Text = "Qiymat";
             this.ResumeLayout(false);
@@ -113,8 +114,8 @@
 
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comBox;
+        private System.Windows.Forms.TextBox tbLabel;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
     }

@@ -32,14 +32,10 @@ namespace SeedExportSystem
             this.btn1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.value6 = new System.Windows.Forms.ComboBox();
-            this.key6 = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.value1 = new System.Windows.Forms.ComboBox();
             this.keyList = new System.Windows.Forms.ListBox();
@@ -48,11 +44,16 @@ namespace SeedExportSystem
             this.label15 = new System.Windows.Forms.Label();
             this.valueList = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.natija = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.comBoxPredmet = new System.Windows.Forms.ComboBox();
+            this.richresult = new System.Windows.Forms.RichTextBox();
+            this.lsExports = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,51 +70,28 @@ namespace SeedExportSystem
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(398, 147);
+            this.button2.Location = new System.Drawing.Point(396, 226);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(91, 24);
             this.button2.TabIndex = 32;
             this.button2.Text = "Qo\'shish";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(398, 219);
+            this.button1.Location = new System.Drawing.Point(138, 256);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 24);
+            this.button1.Size = new System.Drawing.Size(349, 24);
             this.button1.TabIndex = 31;
-            this.button1.Text = "Saqlash";
+            this.button1.Text = "Bilimlarni export ma\'lumot omboriga qo\'shish";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(81, 188);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(50, 16);
-            this.label11.TabIndex = 27;
-            this.label11.Text = "U holda";
-            // 
-            // value6
-            // 
-            this.value6.FormattingEnabled = true;
-            this.value6.Location = new System.Drawing.Point(331, 184);
-            this.value6.Name = "value6";
-            this.value6.Size = new System.Drawing.Size(158, 24);
-            this.value6.TabIndex = 25;
-            // 
-            // key6
-            // 
-            this.key6.FormattingEnabled = true;
-            this.key6.Location = new System.Drawing.Point(138, 184);
-            this.key6.Name = "key6";
-            this.key6.Size = new System.Drawing.Size(166, 24);
-            this.key6.TabIndex = 24;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(93, 33);
+            this.label6.Location = new System.Drawing.Point(93, 64);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(34, 16);
             this.label6.TabIndex = 5;
@@ -122,7 +100,7 @@ namespace SeedExportSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(310, 116);
+            this.label5.Location = new System.Drawing.Point(310, 200);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(16, 16);
             this.label5.TabIndex = 19;
@@ -148,19 +126,10 @@ namespace SeedExportSystem
             this.label13.TabIndex = 41;
             this.label13.Text = "Predmet soxa";
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(310, 188);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 16);
-            this.label12.TabIndex = 26;
-            this.label12.Text = "=";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(111, 192);
+            this.label9.Location = new System.Drawing.Point(111, 223);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 16);
             this.label9.TabIndex = 22;
@@ -168,7 +137,7 @@ namespace SeedExportSystem
             // value1
             // 
             this.value1.FormattingEnabled = true;
-            this.value1.Location = new System.Drawing.Point(331, 112);
+            this.value1.Location = new System.Drawing.Point(331, 196);
             this.value1.Name = "value1";
             this.value1.Size = new System.Drawing.Size(158, 24);
             this.value1.TabIndex = 18;
@@ -190,11 +159,12 @@ namespace SeedExportSystem
             this.sectionList.Name = "sectionList";
             this.sectionList.Size = new System.Drawing.Size(323, 148);
             this.sectionList.TabIndex = 33;
+            this.sectionList.SelectedIndexChanged += new System.EventHandler(this.sectionList_SelectedIndexChanged);
             // 
             // key1
             // 
             this.key1.FormattingEnabled = true;
-            this.key1.Location = new System.Drawing.Point(138, 112);
+            this.key1.Location = new System.Drawing.Point(138, 196);
             this.key1.Name = "key1";
             this.key1.Size = new System.Drawing.Size(166, 24);
             this.key1.TabIndex = 17;
@@ -221,37 +191,96 @@ namespace SeedExportSystem
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.groupBox2.Controls.Add(this.richTextBox2);
+            this.groupBox2.Controls.Add(this.natija);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.comBoxPredmet);
+            this.groupBox2.Controls.Add(this.richresult);
             this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.value6);
-            this.groupBox2.Controls.Add(this.key6);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.value1);
             this.groupBox2.Controls.Add(this.key1);
-            this.groupBox2.Controls.Add(this.richTextBox1);
+            this.groupBox2.Controls.Add(this.lsExports);
             this.groupBox2.Location = new System.Drawing.Point(46, 276);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1057, 278);
+            this.groupBox2.Size = new System.Drawing.Size(1057, 300);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Qoyidalar";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
-            // richTextBox1
+            // natija
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(532, 33);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(487, 219);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "";
+            this.natija.AutoSize = true;
+            this.natija.Location = new System.Drawing.Point(65, 197);
+            this.natija.Name = "natija";
+            this.natija.Size = new System.Drawing.Size(67, 20);
+            this.natija.TabIndex = 39;
+            this.natija.TabStop = true;
+            this.natija.Text = "u holda";
+            this.natija.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(332, 177);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 14);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Qiymat";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(141, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(45, 14);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Atribut";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 16);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Predmet soxa";
+            // 
+            // comBoxPredmet
+            // 
+            this.comBoxPredmet.FormattingEnabled = true;
+            this.comBoxPredmet.Location = new System.Drawing.Point(138, 28);
+            this.comBoxPredmet.Name = "comBoxPredmet";
+            this.comBoxPredmet.Size = new System.Drawing.Size(351, 24);
+            this.comBoxPredmet.TabIndex = 34;
+            this.comBoxPredmet.SelectedIndexChanged += new System.EventHandler(this.comBoxPredmet_SelectedIndexChanged);
+            // 
+            // richresult
+            // 
+            this.richresult.Location = new System.Drawing.Point(138, 64);
+            this.richresult.Name = "richresult";
+            this.richresult.Size = new System.Drawing.Size(351, 104);
+            this.richresult.TabIndex = 33;
+            this.richresult.Text = "";
+            // 
+            // lsExports
+            // 
+            this.lsExports.Location = new System.Drawing.Point(532, 33);
+            this.lsExports.Name = "lsExports";
+            this.lsExports.Size = new System.Drawing.Size(487, 247);
+            this.lsExports.TabIndex = 2;
+            this.lsExports.Text = "";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(37, 582);
+            this.button3.Location = new System.Drawing.Point(43, 582);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(136, 27);
             this.button3.TabIndex = 44;
@@ -280,14 +309,6 @@ namespace SeedExportSystem
             this.button5.Text = "Add";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.Location = new System.Drawing.Point(138, 33);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(351, 67);
-            this.richTextBox2.TabIndex = 33;
-            this.richTextBox2.Text = "";
             // 
             // SeedExport
             // 
@@ -321,14 +342,10 @@ namespace SeedExportSystem
         private System.Windows.Forms.Button btn1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox value6;
-        private System.Windows.Forms.ComboBox key6;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox value1;
         private System.Windows.Forms.ListBox keyList;
@@ -337,11 +354,16 @@ namespace SeedExportSystem
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.ListBox valueList;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox lsExports;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox richresult;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comBoxPredmet;
+        private System.Windows.Forms.RadioButton natija;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
     }
 }
 

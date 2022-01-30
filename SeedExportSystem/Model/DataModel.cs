@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,10 +11,39 @@ namespace SeedExportSystem.Model
     public static class Global
     {
         public static DbContextEntity dbo = new DbContextEntity();
+        public static List<Predmet> LsPredmet { get; set; }
+        public static List<Atribut> LsAtribut { get; set; }
+        public static List<Qiymat> LsQiymat { get; set; }
+        public static List<Export> LsExport { get; set; }
+        public static List<Predmet> GetPredmets()
+              =>LsPredmet=LsPredmet??dbo.Predmets.ToList();
+        public static List<Atribut> GetAtributs()
+            =>LsAtribut = LsAtribut??dbo.Atributs.ToList();
+        public static string GetAtributLabelById(int id)
+            => GetAtributs()?.FirstOrDefault(x => x.Id == id).Label ?? "undefained";
+        public static string GetQiymatLabelById(int id)
+            => GetQiyamts()?.FirstOrDefault(x => x.Id == id).Label ?? "undefained";
+        public static List<Qiymat> GetQiyamts()
+            =>LsQiymat = LsQiymat?? dbo.Qiymats.ToList();
+        public static List<Export> GetExports()
+            => LsExport = LsExport?? dbo.Exports.Include("keyValues").ToList();
     }
     public class DataModel: INotifyPropertyChanged
     {
-        public static DbContextEntity dbo = Global.dbo;
+        private bool m_HasChanges;
+        [NotMapped]
+        public bool HasChanges
+        {
+            get { return m_HasChanges; }
+            set
+            {
+                if (m_HasChanges != value)
+                {
+                    m_HasChanges = value;
+                    OnPropertyChanged(nameof(HasChanges));
+                }
+            }
+        }
         public event PropertyChangedEventHandler PropertyChanged;
         protected virtual void OnPropertyChanged(string property)
         {
@@ -31,12 +61,14 @@ namespace SeedExportSystem.Model
             {
                 propertyRef = value;
                 OnPropertyChanged(propertyName);
+                HasChanges = true;
             }
             return propertyRef;
         }
         public virtual void ApplyChanges()
         {
-            dbo.SaveChanges();
+            Global.dbo.SaveChanges();
+            HasChanges = false;
         }
     }
 }

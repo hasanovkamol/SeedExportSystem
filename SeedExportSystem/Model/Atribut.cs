@@ -19,7 +19,7 @@ namespace SeedExportSystem.Model
         }
         public override void ApplyChanges()
         {
-            dbo.Atributs.AddOrUpdate(this);
+            Global.dbo.Atributs.AddOrUpdate(this);
             base.ApplyChanges();
         }
     }

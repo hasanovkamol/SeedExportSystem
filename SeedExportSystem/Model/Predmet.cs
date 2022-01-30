@@ -13,7 +13,7 @@ namespace SeedExportSystem.Model
             => m_Label.Length>0 ? true:false;
         public override void ApplyChanges()
         {
-            dbo.Predmets.AddOrUpdate(this);
+            Global.dbo.Predmets.AddOrUpdate(this);
             base.ApplyChanges();
         }
     }

@@ -35,6 +35,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>SeedExportSystem.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
@@ -85,10 +88,19 @@
     <Compile Include="Migrations\202201291305268_AddNewDbBase.designer.cs">
       <DependentUpon>202201291305268_AddNewDbBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202201300918201_add new Model .cs" />
+    <Compile Include="Migrations\202201300918201_add new Model .designer.cs">
+      <DependentUpon>202201300918201_add new Model .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202201301053432_update-model.cs" />
+    <Compile Include="Migrations\202201301053432_update-model.designer.cs">
+      <DependentUpon>202201301053432_update-model.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\Atribut.cs" />
     <Compile Include="Model\DataModel.cs" />
     <Compile Include="Model\DbContextEntity.cs" />
+    <Compile Include="Model\Export.cs" />
     <Compile Include="Model\Predmet.cs" />
     <Compile Include="Model\Qiymat.cs" />
     <Compile Include="Program.cs" />
@@ -119,6 +131,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202201291305268_AddNewDbBase.resx">
       <DependentUpon>202201291305268_AddNewDbBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201300918201_add new Model .resx">
+      <DependentUpon>202201300918201_add new Model .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202201301053432_update-model.resx">
+      <DependentUpon>202201301053432_update-model.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

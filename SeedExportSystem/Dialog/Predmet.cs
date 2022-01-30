@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SeedExportSystem.Model;
+using System;
 
 using System.Windows.Forms;
 

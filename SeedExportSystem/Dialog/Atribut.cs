@@ -16,7 +16,7 @@ namespace SeedExportSystem.Dialog
         public Atribut()
         {
             InitializeComponent();
-            this.comBox.Items.Add(Global.dbo.Predmets.ToList());
+            this.comBox.DataSource = Global.GetPredmets().Select(x=>x.Label).ToList();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -28,7 +28,7 @@ namespace SeedExportSystem.Dialog
         {
             Model.Atribut atribut = new Model.Atribut();
             atribut.Label = tbLabel.Text;
-            //atribut.Predmet =comBox.SelectedIndex;
+            atribut.PredmetId = Global.GetPredmets().FirstOrDefault(x=>x.Label==comBox.SelectedItem).Id;
             if (atribut.NotNulModel())
             {
                 atribut.ApplyChanges();

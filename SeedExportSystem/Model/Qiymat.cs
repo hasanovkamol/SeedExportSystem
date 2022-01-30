@@ -22,7 +22,7 @@ namespace SeedExportSystem.Model
             => m_Label.Length>0 && m_AtributId>0 ? true : false;
         public override void ApplyChanges()
         {
-            dbo.Qiymats.AddOrUpdate(this);
+            Global.dbo.Qiymats.AddOrUpdate(this);
             base.ApplyChanges();
         }
     }
