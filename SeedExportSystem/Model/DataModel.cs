@@ -15,18 +15,28 @@ namespace SeedExportSystem.Model
         public static List<Atribut> LsAtribut { get; set; }
         public static List<Qiymat> LsQiymat { get; set; }
         public static List<Export> LsExport { get; set; }
+        public static void Update()
+        {
+            LsAtribut = dbo.Atributs.ToList();
+            LsQiymat = dbo.Qiymats.ToList();
+            LsPredmet = dbo.Predmets.ToList();
+        }
         public static List<Predmet> GetPredmets()
               =>LsPredmet=LsPredmet??dbo.Predmets.ToList();
         public static List<Atribut> GetAtributs()
             =>LsAtribut = LsAtribut??dbo.Atributs.ToList();
         public static string GetAtributLabelById(int id)
             => GetAtributs()?.FirstOrDefault(x => x.Id == id).Label ?? "undefained";
+        public static int GetAtributIdByLabel(string label)
+            => GetAtributs()?.FirstOrDefault(x => x.Label ==label ).Id ?? 0;
         public static string GetQiymatLabelById(int id)
             => GetQiyamts()?.FirstOrDefault(x => x.Id == id).Label ?? "undefained";
+        public static int GetQiymatIdBuLabel(string label)
+           => GetQiyamts()?.FirstOrDefault(x => x.Label == label).Id ?? 0;
         public static List<Qiymat> GetQiyamts()
             =>LsQiymat = LsQiymat?? dbo.Qiymats.ToList();
         public static List<Export> GetExports()
-            => LsExport = LsExport?? dbo.Exports.Include("keyValues").ToList();
+            =>  dbo.Exports.Include("keyValues").ToList();
     }
     public class DataModel: INotifyPropertyChanged
     {

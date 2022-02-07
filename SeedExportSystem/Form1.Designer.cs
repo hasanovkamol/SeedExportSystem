@@ -54,6 +54,7 @@ namespace SeedExportSystem
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -150,6 +151,7 @@ namespace SeedExportSystem
             this.keyList.Name = "keyList";
             this.keyList.Size = new System.Drawing.Size(323, 148);
             this.keyList.TabIndex = 34;
+            this.keyList.SelectedIndexChanged += new System.EventHandler(this.keyList_SelectedIndexChanged);
             // 
             // sectionList
             // 
@@ -191,6 +193,7 @@ namespace SeedExportSystem
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.natija);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label2);
@@ -272,9 +275,9 @@ namespace SeedExportSystem
             // 
             // lsExports
             // 
-            this.lsExports.Location = new System.Drawing.Point(532, 33);
+            this.lsExports.Location = new System.Drawing.Point(532, 44);
             this.lsExports.Name = "lsExports";
-            this.lsExports.Size = new System.Drawing.Size(487, 247);
+            this.lsExports.Size = new System.Drawing.Size(487, 236);
             this.lsExports.TabIndex = 2;
             this.lsExports.Text = "";
             // 
@@ -309,6 +312,15 @@ namespace SeedExportSystem
             this.button5.Text = "Add";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(533, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(89, 16);
+            this.label4.TabIndex = 40;
+            this.label4.Text = "Bilimlar bazasi";
             // 
             // SeedExport
             // 
@@ -364,6 +376,7 @@ namespace SeedExportSystem
         private System.Windows.Forms.RadioButton natija;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -33,17 +33,19 @@ namespace SeedExportSystem
         }
 
         
-        private void UploadLs()
+        private void onLoad(int predmetId)
         {
-           this.comBoxPredmet.DataSource=
-              this.sectionList.DataSource=
-                Global.GetPredmets().Select(x => x.Label).ToList();
-            this.key1.DataSource=
-                this.keyList.DataSource =
-                Global.GetAtributs().Select(x => x.Label).ToList();
-            this.value1.DataSource=
-            this.valueList.DataSource = Global.GetQiyamts().Select(x => x.Label).ToList();
-            
+            lsExports.Text = "";
+            foreach (var item in Global.GetExports().Where(x=>x.PredmetId==predmetId))
+            {
+                foreach (var x in item.keyValues)
+                {
+                    lsExports.Text += (x.isResult ? "u holda ":" Agar ")
+                        +Global.GetAtributLabelById(x.Key)+" = "
+                        +Global.GetQiymatLabelById(x.Value)
+                        + (x.isResult ?" bo'ladi": " bo'lsa ");
+                }
+            }
         }
         private void button4_Click(object sender, EventArgs e)
         {
@@ -63,10 +65,24 @@ namespace SeedExportSystem
             qiymat.ShowDialog();
             if(DialogResult.OK==qiymat.DialogResult) this.UploadLs();
         }
-
+        private void UploadLs()
+        {
+            Global.Update();
+            this.comBoxPredmet.DataSource =
+            this.sectionList.DataSource =
+            Global.GetPredmets().Select(x => x.Label).ToList();
+        }
         private void sectionList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var u = sender;
+            int prdermetId = Global.GetPredmets()
+                .FirstOrDefault(x => x.Label == ((ListBox)sender).SelectedItem.ToString()).Id;
+            this.key1.DataSource =
+                             this.keyList.DataSource =Global.GetAtributs()
+                             .Where(x=>x.PredmetId==prdermetId)
+                             .Select(x => x.Label)
+                             .ToList();
+
+            this.onLoad(prdermetId);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -77,6 +93,7 @@ namespace SeedExportSystem
                 + value1.SelectedItem.ToString()+(natija.Checked?" bo'ladi ":" bo'lsa ");
             export.keyValues.Add(new KeyValue()
             {
+                isResult=natija.Checked,
                 Key = Global.GetAtributs().FirstOrDefault(x=>x.Label==key1.SelectedItem.ToString()).Id,
                 Value = Global.GetQiyamts().FirstOrDefault(x=>x.Label==value1.SelectedItem.ToString()).Id
             });            
@@ -89,13 +106,9 @@ namespace SeedExportSystem
            if(export.keyValues.Count>2)
             {
                 export.ApplyChanges();
-                foreach (var item in Global.GetExports().ToList().FirstOrDefault(x=>x.PredmetId==export.Id).keyValues)
-                {
-                    lsExports.Text += item.Key.ToString() +" = "+item.Value.ToString() +" bolsa va ";
-                    richresult.Text = "";
-                    export = new Export();
-                }
-                
+                UploadLs();
+
+
             }
             else
             {
@@ -110,16 +123,17 @@ namespace SeedExportSystem
 
         private void comBoxPredmet_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lsExports.Text = "";
-            foreach (var item in Global.GetExports().ToList().FirstOrDefault().keyValues)
-            {
-                lsExports.Text +=
-                    Global.GetAtributLabelById(item.Key) 
-                    + " = " + 
-                    Global.GetQiymatLabelById(item.Value) + " bolsa va ";
-                richresult.Text = "";
-                export = new Export();
-            }
+
+        }
+
+        private void keyList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int atributId = Global.GetAtributIdByLabel(((ListBox)sender).SelectedItem.ToString());
+            this.value1.DataSource =
+                   this.valueList.DataSource = Global.GetQiyamts()
+                   .Where(x=>x.AtributId==atributId)
+                   .Select(x => x.Label)
+                   .ToList();
         }
     }
 }
